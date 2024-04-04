@@ -1,3 +1,5 @@
+
+// XỬ LÝ 1 MẢNG
 const array = [1, 2, 3, 4, 5];
 
 //Lấy độ dài của mảng
