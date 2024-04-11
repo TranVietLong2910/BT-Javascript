@@ -52,15 +52,21 @@
 
   <div class="p-5">
     <table class="table table-bordered" id="arrayTable">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Gender</th>
-        <th>Phone Number</th>
-        <th>Description</th>
-        <th>Source</th>
-      </tr>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Phone Number</th>
+          <th>Description</th>
+          <th>Source</th>
+        </tr>
+      </thead>
+      <tbody id="data-tbody">
+        <tr>
+        </tr>
+      </tbody>
     </table>
   </div>
   <script>
@@ -69,7 +75,7 @@
       return Math.random().toString(36).substring(2, 15);
     }
 
-    // Hàm tạo mảng duy nhất
+    // Hàm tạo mảng 
     function createUniqueArray() {
 
       // tao doi tuong name va source de khong trung lap
@@ -78,17 +84,14 @@
       const array = [];
 
       while (array.length < 2000) {
-
-        const name = `${randomString()}`;
         const source = `Source_${randomString()}`;
 
-        if (!uniqueNames.has(name) && !uniqueSources.has(source)) {
-          uniqueNames.add(name);
+        if (!uniqueSources.has(source)) {
           uniqueSources.add(source);
 
           array.push({
             id: array.length + 1,
-            name: name,
+            name: `name_${array.length + 1}`,
             address: `Da_Nẵng_${array.length + 1}`,
             gender: Math.random() > 0.5 ? 'Male' : 'Female',
             phoneNumber: `09${Math.floor(Math.random() * 1000000000)}`,
@@ -103,8 +106,8 @@
 
     // Hàm hiển thị mảng lên bảng
     function displayArray(array) {
-      debugger
-      const table = $('#arrayTable')[0];
+      const table = $('#data-tbody')[0];   
+      table.innerHTML = "";
       array.forEach(item => {
         const row = table.insertRow();
         Object.values(item).forEach(text => {
@@ -121,14 +124,13 @@
 
     //Tìm kiếm dữ liệu
     function seachData() {
-      const name = $('#username')[0].value;
+      const name = $('#username')[0].value.trim().toLowerCase();
       const filterData = [];
       myArray.forEach((element) => {
         if (element.name === name) {
           filterData.push(element)
         }
       })
-      console.log(filterData)
       displayArray(filterData);
     }
 
