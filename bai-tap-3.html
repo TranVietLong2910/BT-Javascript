@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>bai 3</title>
+</head>
+<body style="text-align: center;">
+  <h1>Tinh so lon 10 chu so</h1>
+  <form id="calculator">
+    <input type="number" id="number1" placeholder="" required>
+    <input type="number" id="number2" placeholder="" required>
+    <div class="button" style="margin-top: 10px;">
+      <button type="button" onclick="sumNumber()" >X + Y</button>
+      <button type="button" onclick="subtractionNumber()">X - Y</button>
+      <button type="button" onclick="multiplicationNumber()">X * Y</button>
+      <button type="button" onclick="divisionNumber()">X / Y</button>
+    </div>
+  </form>
+  <h3>Result:</h3>
+  <div id="result"></div>
+
+  <script>
+    // phép cộng
+    function sumNumber() {
+      const number1 = BigInt(document.getElementById('number1').value);
+      const number2 = BigInt(document.getElementById('number2').value);
+      let result;
+      result = number1 + number2;
+      document.getElementById('result').innerText = result.toLocaleString();
+    }
+
+    //phép trừ
+    function subtractionNumber() {
+      const number1 = BigInt(document.getElementById('number1').value);
+      const number2 = BigInt(document.getElementById('number2').value);
+      let result;
+      result = number1 - number2;
+      document.getElementById('result').innerText = result.toLocaleString();
+    }
+
+    //phép nhân
+    function multiplicationNumber() {
+      const number1 = BigInt(document.getElementById('number1').value);
+      const number2 = BigInt(document.getElementById('number2').value);
+      let result;
+      result = number1 * number2;
+      document.getElementById('result').innerText = result.toLocaleString();
+    }
+
+    //phép chia
+    function divisionNumber() {
+      const number1 = BigInt(document.getElementById('number1').value);
+      const number2 = BigInt(document.getElementById('number2').value);
+      let result;
+      result = number1 / number2;
+      document.getElementById('result').innerText = result.toLocaleString();
+    }
+  </script>
+</body>
+</html>
+<style>
+  #result {
+    font-size: 50px;
+    font-weight: bold;
+  }
+</style>

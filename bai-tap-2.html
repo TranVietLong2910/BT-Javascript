@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+  <form>
+    <label for="inputDay">Nhập số ngày đi làm tiếp theo:</label>
+    <input type="number" id="inputDay" name="inputDay" min="1">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="result">
+  </div>
+</body>
+
+</html>
+<script>
+  function getDayOfWeek(event) {
+    event.preventDefault(); // Ngăn chặn việc submit form
+
+    var inputDay = document.getElementById("inputDay").value;
+    var dayOfWeek = getDayOfWeekName(inputDay);
+
+    var resultElement = document.getElementById("result");
+    resultElement.textContent = "Thứ " + dayOfWeek;
+  }
+
+  function getDayOfWeekName(day) {
+    var days = ["Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu"];
+    return days[day % 5];
+  }
+
+  // Lắng nghe sự kiện submit của form
+  var form = document.querySelector("form");
+  form.addEventListener("submit", getDayOfWeek);
+</script>
