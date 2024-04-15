@@ -132,14 +132,6 @@ Dưới đây là phân tích ưu và nhược điểm của một số hàm tha
         Không thể trả về giá trị.
         Không thể chính sửa mảng.
 
-* So sánh với các hàm tương tự:
-
-push() và unshift() là hai hàm tương tự, cả hai đều thêm phần tử vào mảng, nhưng push() thêm vào cuối và unshift() thêm vào đầu.
-pop() và shift() là hai hàm tương tự, cả hai đều xóa phần tử khỏi mảng, nhưng pop() xóa cuối và shift() xóa đầu.
-concat() và slice() là hai hàm tương tự, cả hai đều tạo ra một mảng mới từ mảng gốc, nhưng concat() hợp nhất hai hoặc nhiều mảng và slice() tạo một phần tử con từ mảng gốc.
-splice() là một hàm mạnh mẽ hơn, cho phép thêm, xóa hoặc thay thế phần tử trong mảng, trong khi các hàm khác chỉ thêm hoặc xóa.
-Tùy thuộc vào nhu cầu của ứng dụng, các hàm này có thể được sử dụng một cách phù hợp. Ví dụ, nếu cần thêm nhiều phần tử vào cuối mảng, push() sẽ hiệu quả hơn so với splice(). Nếu cần tạo một bản sao của mảng, slice() sẽ hiệu quả hơn so với concat().
-
 
 -----------------------------------------------------------------// So sánh flat với reduce //------------------------------------------------------------------------------
 
@@ -256,3 +248,84 @@ Tùy thuộc vào nhu cầu của ứng dụng, các hàm này có thể đượ
     + indexOf(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử đầu tiên khớp.
     + lastIndexOf(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử cuối cùng khớp.
     + includes(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử khớp.
+
+
+
+-----------------------------------------------------------------// So sánh push  và unshift //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + push(): Dùng để thêm một hoặc nhiều phần tử vào cuối của mảng.
+    + unshift(): Dùng để thêm một hoặc nhiều phần tử vào đầu của mảng.
+
+
+* Trả về giá trị:
+
+    + push(): Trả về độ dài mới của mảng sau khi thêm phần tử.
+    + unshift(): Trả về độ dài mới của mảng sau khi thêm phần tử.
+
+* Khả năng thay đổi mảng gốc:
+
+    + push(): Thay đổi mảng gốc, thêm phần tử vào cuối.
+    + unshift(): Thay đổi mảng gốc, thêm phần tử vào đầu.
+
+* Hiệu năng:
+
+    + push(): Hiệu năng tốt, chỉ cần thêm phần tử vào cuối mảng.
+    + unshift(): Có thể kém hiệu năng hơn so với push() vì cần phải dịch chuyển tất cả các phần tử trong mảng để chèn phần tử vào đầu.
+
+
+-----------------------------------------------------------------// So sánh pop  và shift //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + pop(): Dùng để loại bỏ và trả về phần tử cuối cùng của mảng.
+    + shift(): Dùng để loại bỏ và trả về phần tử đầu tiên của mảng.
+
+
+* Trả về giá trị:
+
+    + pop(): Trả về phần tử cuối cùng của mảng.
+    + shift(): Trả về phần tử đầu tiên của mảng.
+
+* Khả năng thay đổi mảng gốc:
+
+    + pop(): Thay đổi mảng gốc, loại bỏ phần tử cuối.
+    + shift(): Thay đổi mảng gốc, loại bỏ phần tử đầu.
+
+* Hiệu năng:
+
+    + pop(): Hiệu năng tốt, chỉ cần loại bỏ phần tử cuối.
+    + shift(): Có thể kém hiệu năng hơn so với pop() vì cần phải dịch chuyển tất cả các phần tử trong mảng để xóa phần tử đầu.
+
+
+-----------------------------------------------------------------// So sánh concat và slice và splice //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + concat(): Dùng để gộp hai hoặc nhiều mảng lại với nhau, tạo thành một mảng mới.
+    + slice(): Dùng để trích xuất một phần của mảng, tạo thành một mảng mới.
+    + splice(): Dùng để thêm, xóa hoặc thay thế các phần tử trong mảng.
+
+
+* Trả về giá trị:
+
+    + concat(): Trả về một mảng mới, gồm tất cả các phần tử của mảng được gọi và các mảng được truyền vào làm tham số.
+    + slice(): Trả về một mảng mới, gồm các phần tử được trích xuất từ mảng gốc.
+    + splice(): Trả về một mảng mới, gồm các phần tử đã bị xóa khỏi mảng gốc.
+
+
+* Khả năng thay đổi mảng gốc:
+
+    + concat(): Không thay đổi mảng gốc, chỉ tạo ra mảng mới.
+    + slice(): Không thay đổi mảng gốc, chỉ tạo ra mảng mới.
+    + splice(): Thay đổi mảng gốc, thêm, xóa hoặc thay thế các phần tử.
+
+* Hiệu năng:
+
+    + concat(): Hiệu năng tốt, chỉ cần gộp các mảng lại.
+    + slice(): Hiệu năng tốt, chỉ cần trích xuất một phần của mảng.
+    + splice(): Có thể kém hiệu năng hơn so với concat() và slice() vì cần phải dịch chuyển các phần tử trong mảng.
