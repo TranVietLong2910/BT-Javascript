@@ -1,0 +1,114 @@
+Dưới đây là phân tích ưu và nhược điểm của một số hàm thao tác mảng được sử dụng trong khóa học JavaScript cơ bản:
+
+* push():
+    + Ưu điểm:
+        Thêm một hoặc nhiều phần tử vào cuối mảng.
+        Trả về độ dài mới của mảng.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Thời gian thực thi phụ thuộc vào số lượng phần tử cần thêm vào.
+        Nếu thêm nhiều phần tử, có thể làm chậm hiệu năng của chương trình.
+
+
+* pop():
+    + Ưu điểm:
+        Xóa và trả về phần tử cuối cùng của mảng.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Thời gian thực thi phụ thuộc vào số lượng phần tử trong mảng.
+        Nếu mảng rỗng, sẽ trả về undefined.
+
+
+* shift():
+    + Ưu điểm:
+        Xóa và trả về phần tử đầu tiên của mảng.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Thời gian thực thi phụ thuộc vào số lượng phần tử trong mảng.
+        Phải di chuyển tất cả các phần tử trong mảng để xóa phần tử đầu tiên.
+
+
+* unshift():
+    + Ưu điểm:
+        Thêm một hoặc nhiều phần tử vào đầu mảng.
+        Trả về độ dài mới của mảng.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Thời gian thực thi phụ thuộc vào số lượng phần tử cần thêm vào.
+        Phải di chuyển tất cả các phần tử trong mảng để thêm phần tử vào đầu.
+
+
+* concat():
+
+    + Ưu điểm:
+        Hợp nhất hai hoặc nhiều mảng thành một mảng mới.
+        Không thay đổi các mảng gốc.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Tạo ra một mảng mới, có thể làm tăng sử dụng bộ nhớ nếu các mảng đầu vào lớn.
+
+
+* slice():
+
+    + Ưu điểm:
+        Tạo một phần tử con của mảng mà không thay đổi mảng gốc.
+        Cho phép chỉ định vị trí bắt đầu và kết thúc.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Tạo ra một mảng mới, có thể làm tăng sử dụng bộ nhớ nếu mảng gốc lớn.
+
+
+* splice():
+
+    + Ưu điểm:
+        Cho phép thêm, xóa hoặc thay thế phần tử trong mảng.
+        Trả về một mảng chứa các phần tử đã bị xóa.
+        Đơn giản và dễ sử dụng.
+    + Nhược điểm:
+        Thay đổi trực tiếp mảng gốc.
+        Thời gian thực thi phụ thuộc vào số lượng phần tử cần thêm/xóa.
+
+
+* sort():
+
+    + Ưu điểm:
+        Đơn giản và dễ sử dụng.
+        Linh hoạt.
+        Thực hiện in-place.
+    + Nhược điểm:
+        Không ổn định.
+        Hiệu suất không đồng đều.
+        Nhạy cảm với kiểu dữ liệu.
+        Không thể sắp xếp các kiểu dữ liệu phức tạp
+
+* map(): 
+
+    + Ưu điểm:
+        Tính chức năng.
+        Tính rõ ràng và tính bảo trì.
+        Hiệu suất.
+    + Nhược điểm:
+        Tạo ra một mảng mới làm tiêu tốn bộ nhớ, đặc biệt mảng lớn.
+        Không thể thay đổi mảng gốc.
+        Không thể sử dụng break hoặc continue.
+        Không thể sử dụng với Promise.
+
+
+* forEach():
+
+    + Ưu điểm:
+        Đơn giản và dễ sử dụng.
+        Không cần tạo biến đếm.
+        Có thể thực hiện các thao tác phức tạp.
+    + Nhược điểm:
+        Không thể dừng vòng lặp.
+        Không thể trả về giá trị.
+        Không thể chính sửa mảng.
+
+* So sánh với các hàm tương tự:
+
+push() và unshift() là hai hàm tương tự, cả hai đều thêm phần tử vào mảng, nhưng push() thêm vào cuối và unshift() thêm vào đầu.
+pop() và shift() là hai hàm tương tự, cả hai đều xóa phần tử khỏi mảng, nhưng pop() xóa cuối và shift() xóa đầu.
+concat() và slice() là hai hàm tương tự, cả hai đều tạo ra một mảng mới từ mảng gốc, nhưng concat() hợp nhất hai hoặc nhiều mảng và slice() tạo một phần tử con từ mảng gốc.
+splice() là một hàm mạnh mẽ hơn, cho phép thêm, xóa hoặc thay thế phần tử trong mảng, trong khi các hàm khác chỉ thêm hoặc xóa.
+Tùy thuộc vào nhu cầu của ứng dụng, các hàm này có thể được sử dụng một cách phù hợp. Ví dụ, nếu cần thêm nhiều phần tử vào cuối mảng, push() sẽ hiệu quả hơn so với splice(). Nếu cần tạo một bản sao của mảng, slice() sẽ hiệu quả hơn so với concat().
