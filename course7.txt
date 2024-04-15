@@ -94,6 +94,33 @@ Dưới đây là phân tích ưu và nhược điểm của một số hàm tha
         Không thể sử dụng với Promise.
 
 
+* join(): 
+
+    + Ưu điểm:
+        Tính đơn giản và dễ sử dụng.
+        Tính linh hoạt.
+        Hiệu suất.
+    + Nhược điểm:
+        Tạo ra một mảng mới làm tiêu tốn bộ nhớ, đặc biệt mảng lớn.
+        Không thể thay đổi mảng gốc.
+        Không thể sử dụng break hoặc continue.
+        Không thể sử dụng với Promise.
+
+
+* reverse(): 
+
+    + Ưu điểm:
+        Tính đơn giản và dễ sử dụng.
+        Tính linh hoạt.
+        Tính hiệu quả.
+        Tính tái sử dụng.
+    + Nhược điểm:
+        Không thể chọn lọc phần tử.
+        Không thể tạo bản sao mới.
+        Không thể đảo ngược chuỗi.
+        Không thể xử lý các giá trị undefined và null.
+
+
 * forEach():
 
     + Ưu điểm:
@@ -112,3 +139,120 @@ pop() và shift() là hai hàm tương tự, cả hai đều xóa phần tử kh
 concat() và slice() là hai hàm tương tự, cả hai đều tạo ra một mảng mới từ mảng gốc, nhưng concat() hợp nhất hai hoặc nhiều mảng và slice() tạo một phần tử con từ mảng gốc.
 splice() là một hàm mạnh mẽ hơn, cho phép thêm, xóa hoặc thay thế phần tử trong mảng, trong khi các hàm khác chỉ thêm hoặc xóa.
 Tùy thuộc vào nhu cầu của ứng dụng, các hàm này có thể được sử dụng một cách phù hợp. Ví dụ, nếu cần thêm nhiều phần tử vào cuối mảng, push() sẽ hiệu quả hơn so với splice(). Nếu cần tạo một bản sao của mảng, slice() sẽ hiệu quả hơn so với concat().
+
+
+-----------------------------------------------------------------// So sánh flat với reduce //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + flat(): Dùng để làm phẳng (flatten) một mảng lồng nhau (nested array) thành một mảng dẹt (flat array).
+    + reduce(): Dùng để thực hiện các phép toán giảm thiểu lên một mảng, kết quả trả về có thể là một giá trị đơn hoặc một mảng mới.
+
+
+* Tính linh hoạt:
+
+    + flat(): Chỉ có thể làm phẳng mảng, không thể thực hiện các tác vụ khác như lọc, ánh xạ, v.v.
+    + reduce(): Rất linh hoạt, có thể thực hiện nhiều tác vụ khác nhau như lọc, ánh xạ, giảm, v.v.
+
+* Tham số:
+
+    + flat(): Có thể truyền vào một tham số tùy chọn là độ sâu tối đa muốn làm phẳng (mặc định là 1).
+    + reduce(): Có hai tham số bắt buộc là hàm callback và giá trị khởi tạo (nếu cần).
+
+* Cách hoạt động:
+
+    + flat(): Thực hiện một cách đơn giản, chỉ cần phẳng hóa mảng.
+    + reduce(): Phức tạp hơn, yêu cầu hiểu rõ cách hoạt động của hàm callback và giá trị khởi tạo.
+
+* Hiệu quả tính toán:
+
+    + flat(): Hiệu quả, không cần lặp lại code.
+    + reduce(): Cũng hiệu quả, nhưng phụ thuộc vào logic trong hàm callback.
+
+-----------------------------------------------------------------// So sánh map  với forEach và for loop //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + map(): Dùng để áp dụng một hàm lên từng phần tử của mảng và trả về một mảng mới với các giá trị đã được xử lý.
+    + forEach(): Dùng để thực hiện một tác vụ nào đó trên từng phần tử của mảng, nhưng không trả về một mảng mới.
+    + for loop: Là vòng lặp truyền thống, cho phép bạn thực hiện các thao tác tùy ý trên từng phần tử của mảng.
+
+
+* Trả về giá trị:
+
+    + map(): Trả về một mảng mới với các giá trị đã được xử lý.
+    + forEach(): Không trả về giá trị, nó chỉ thực hiện các tác vụ trên từng phần tử.
+    + for loop: Không trả về giá trị, nhưng bạn có thể thực hiện bất kỳ thao tác nào mong muốn và lưu kết quả vào một biến.
+
+* Khả năng thay đổi mảng gốc:
+
+    + map(): Không thay đổi mảng gốc, mà tạo ra một mảng mới.
+    + forEach(): Có thể thay đổi mảng gốc.
+    + for loop: Có thể thay đổi mảng gốc.
+
+* Tính chaining:
+
+    + map(): Có thể được chaining với các phương thức khác như filter(), reduce(), v.v.
+    + forEach(): forEach(): Không thể được chaining với các phương thức khác.
+    + for loop: Có thể được sử dụng trong các câu lệnh if-else, switch-case, v.v.
+
+* Hiệu năng:
+
+    + map(): Hiệu năng tốt, do không cần lặp lại code.
+    + forEach(): Hiệu năng tốt, nhưng không trả về giá trị.
+    + for loop: Hiệu năng tùy thuộc vào logic bên trong vòng lặp.
+
+
+-----------------------------------------------------------------// So sánh Find  với findIndex và filter //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + find(): Dùng để tìm và trả về phần tử đầu tiên trong mảng thỏa mãn điều kiện được cung cấp.
+    + findIndex(): Dùng để tìm và trả về chỉ số (index) của phần tử đầu tiên trong mảng thỏa mãn điều kiện được cung cấp.
+    + filter(): Dùng để tạo ra một mảng mới chứa tất cả các phần tử trong mảng gốc thỏa mãn điều kiện được cung cấp.
+
+
+* Trả về giá trị:
+
+    + find(): Trả về phần tử đầu tiên thỏa mãn điều kiện, hoặc undefined nếu không tìm thấy.
+    + indIndex(): Trả về chỉ số (index) của phần tử đầu tiên thỏa mãn điều kiện, hoặc -1 nếu không tìm thấy.
+    + filter(): Trả về một mảng mới chứa tất cả các phần tử thỏa mãn điều kiện.
+
+* Khả năng thay đổi mảng gốc:
+
+    + find(): Không thay đổi mảng gốc.
+    + findIndex(): Không thay đổi mảng gốc.
+    + filter(): Không thay đổi mảng gốc, mà tạo ra một mảng mới.
+
+* Hiệu năng:
+
+    + find(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử đầu tiên thỏa mãn.
+    + findIndex(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử đầu tiên thỏa mãn.
+    + filter(): Hiệu năng tốt, nhưng phải duyệt qua toàn bộ mảng.
+
+
+-----------------------------------------------------------------// So sánh indexOf  với lastIndexOf và includes //------------------------------------------------------------------------------
+
+
+* Mục đích sử dụng:
+
+    + indexOf(): Dùng để tìm và trả về chỉ số (index) của phần tử đầu tiên trong mảng khớp với giá trị được cung cấp.
+    + lastIndexOf(): Dùng để tìm và trả về chỉ số (index) của phần tử cuối cùng trong mảng khớp với giá trị được cung cấp.
+    + includes(): Dùng để kiểm tra xem mảng có chứa giá trị được cung cấp hay không, trả về true hoặc false.
+
+
+* Trả về giá trị:
+
+    + indexOf(): Trả về chỉ số (index) của phần tử đầu tiên khớp, hoặc -1 nếu không tìm thấy.
+    + lastIndexOf(): Trả về chỉ số (index) của phần tử cuối cùng khớp, hoặc -1 nếu không tìm thấy.
+    + includes(): Trả về true nếu tìm thấy giá trị, false nếu không tìm thấy.
+
+
+* Hiệu năng:
+
+    + indexOf(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử đầu tiên khớp.
+    + lastIndexOf(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử cuối cùng khớp.
+    + includes(): Hiệu năng tốt, chỉ cần duyệt qua mảng đến khi tìm thấy phần tử khớp.
